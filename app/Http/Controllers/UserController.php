@@ -33,7 +33,7 @@ class UserController extends Controller
     $data['password'] = Hash::make($request->input('password'));
     User::create($data);
 
-    return redirect()->route('users.index') ->with('success', 'User created successfully');
+    return redirect()->route('user.index') ->with('success', 'User created successfully');
 }
     //show
     public function show($id)
@@ -71,7 +71,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'User deleted successfully');
+        return redirect()->route('user.index')->with('success', 'User deleted successfully');
     }
 }
 
